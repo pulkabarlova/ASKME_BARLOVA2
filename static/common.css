@@ -1,0 +1,358 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgrey;
+    padding: 10px;
+}
+
+.account {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.account-image {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+}
+
+.search-form-button {
+    all: unset;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: green;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.search-form-button:hover {
+    opacity: 0.9;
+}
+
+.search-form-input {
+    height: 23px;
+    width: 300px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.ask-form {
+    width: 60%;
+    padding: 10px;
+}
+
+.sidebar {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.popular-tags, .best-members {
+    margin-top: 0;
+    padding: 10px;
+    margin-left: 2px;
+}
+
+.best-members-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.tags a {
+    display: inline-block;
+    text-decoration: none;
+    width: auto;
+    color: black;
+    margin: 2px;
+    padding: 2px 5px;
+}
+
+.tags .python,
+.tags .mysql {
+    color: red;
+    font-size: 1.2em;
+}
+
+.tags .django {
+    color: green;
+}
+
+.tags .firefox {
+    color: orange;
+}
+
+.submit-button {
+    all: unset;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: green;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    opacity: 0.9;
+}
+
+.input-tags, .input-title {
+    border: solid black;
+    height: 20px;
+    width: 300px;
+}
+
+.input-body {
+    height: 300px;
+    width: 300px;
+    border: solid black;
+}
+
+.title-bar {
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    flex-direction: column;
+    flex: 1;
+}
+
+.main-content {
+    padding: 10px;
+    width: 70%;
+}
+
+.title-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.card {
+    display: flex;
+    gap: 10px;
+    width: 70%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.card-left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-image {
+    width: 100%;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.card-likes {
+    width: 100%;
+    padding: 0;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-right-button {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.login-form {
+    width: 300px;
+    background-color: white;
+}
+
+.form-input {
+    padding: 5px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.form-button {
+    all: unset;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: green;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    opacity: 0.9;
+}
+
+.wrong_password {
+    color: red;
+}
+
+.file-upload {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.file-upload label {
+    font-size: 0.9em;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.settings-form {
+    width: 300px;
+    background-color: white;
+    padding: 5px;
+}
+
+
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.popular-tags, .best-members {
+    margin-top: 0;
+    padding: 10px;
+    margin-left: 2px;
+}
+
+.best-members-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px;
+}
+
+.tags a {
+    display: inline-block;
+    text-decoration: none;
+    width: auto;
+    color: black;
+    margin: 2px;
+    padding: 2px 5px;
+}
+
+
+.question-content {
+    width: 65%;
+    background-color: white;
+    padding: 10px;
+}
+
+.question-header h1 {
+    margin-top: 0;
+}
+
+.question-tags a {
+    color: blue;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    display: flex;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.comment-avatar {
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    object-fit: cover;
+}
+
+.comment-likes {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.comment-content {
+    flex-grow: 1;
+}
+
+.comment-correct {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.answer-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.answer-input {
+    width: 100%;
+    height: 80px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.answer-button {
+    all: unset;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: green;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+}

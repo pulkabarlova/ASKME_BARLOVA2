@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<main class="container">
+    <section class="question-form">
+        <div class="content">
+            <div class="title-bar">
+                <h1>New Question</h1>
+            </div>
+        </div>
+        <form action="#" method="post" class="ask-form">
+            <div class="form-group">
+                <label for="question-title">Title:</label>
+                <input class="input-title" type="text" id="question-title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="question-body">Details: </label>
+                <textarea class="input-body" id="question-body" name="body" rows="8" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tags">Tags: </label>
+                <input class="input-tags" type="text" id="tags" name="tags" placeholder="moon, park, puzzle">
+            </div>
+            <button type="submit" class="submit-button">Ask!</button>
+        </form>
+    </section>
+    {% endblock %}

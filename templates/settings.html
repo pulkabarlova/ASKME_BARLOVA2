@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<main class="container">
+    <section class="settings-form">
+        <div class="title-bar">
+            <h1>Settings: DR.Pepper</h1>
+        </div>
+        <form action="#">
+            <input type="text" placeholder="Login" class="form-input" required>
+            <input type="email" placeholder="Email" class="form-input" required>
+            <input type="text" placeholder="Nickname" class="form-input" required>
+            <div class="file-upload">
+                <label for="avatar">Upload avatar:</label>
+                <input type="file" id="avatar" name="avatar">
+            </div>
+            <button type="submit" class="form-button">Save!</button>
+        </form>
+    </section>
+    {% endblock %}

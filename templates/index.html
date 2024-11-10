@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<main class="container">
+    <div class="content">
+        <div class="title-bar">
+            <h1>New questions</h1>
+            <a href="/hot">Hot questions</a>
+        </div>
+        <article class="cards">
+            {% for question in questions %}
+            <div class="card">
+                <div class="card-left">
+                    <img src="./image.jpg" alt="Image" class="card-image">
+                    <input type="number" class="card-likes" value="5">
+                </div>
+                <div class="card-right">
+                    <div class="card-right-content">
+                        <h4><a href="{% url 'one_question' question.id %}"> {{ question.title }} </a></h4>
+                        <div>{{ question.text }}</div>
+                    </div>
+                    <div class="card-right-button">
+                        <a href="./answers.html">Answer (3)</a>
+                        <div class="card-tags">
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </article>
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span>Page {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<main class="container">
+    <section class="question-content">
+        <div class="question-header">
+            <h1>How to build a moon park ?</h1>
+            <p>Lorem ipsum- dolor sit amet, consectetuer odipiscing elit sed diam anummy nibh euismod tincidunt
+                ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+                exerci tation ullamcorper suscipit lobortis nisl ut aliguip ex ea commodo consequata</p>
+            <div class="question-tags">Tags: <a href="#">black-jack</a> <a href="#">bender</a></div>
+        </div>
+        <div class="comments">
+            <div class="comment">
+                <div class="comment-left">
+                    <img src="./avatar.jpg" alt="avatar" class="comment-avatar">
+                    <input type="number" class="card-likes" value="5">
+                </div>
+                <div class="comment-content">
+                    <p>First of all I wouid like to thank you for the invitation to participate in such a Russia
+                        is the huge territory which in many respects needs to be render habitable</p>
+                    <div class="comment-correct">
+                        <input type="checkbox" checked> Correct!
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-left">
+                    <img src="./avatar.jpg" alt="avatar" class="comment-avatar">
+                    <input type="number" class="card-likes" value="5">
+                </div>
+                <div class="comment-content">
+                    <p>First of all I wouid like to thank you for the invitation to participate in such a Russia
+                        is the huge territory which in many respects needs to be render habitable</p>
+                    <div class="comment-correct">
+                        <input type="checkbox"> Correct!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="answer-form">
+            <textarea placeholder="Enter your answer here.." class="answer-input"></textarea>
+
+        </div>
+        <button class="answer-button">Answer!</button>
+    </section>
+    {% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+<main class="container">
+    <div class="content">
+        <div class="title-bar">
+            <h1>One question page</h1>
+            <a href="/index">Main page</a>
+        </div>
+        <article class="cards">
+
+            <div class="card">
+                <div class="card-left">
+                    <img src="./image.jpg" alt="Image" class="card-image">
+                    <input type="number" class="card-likes" value="5">
+                </div>
+                <div class="card-right">
+                    <div class="card-right-content">
+                        <h4>{{ item.title }}</h4>
+                        <div>{{ item.text }}</div>
+                    </div>
+                    <div class="card-right-button">
+                        <a href="./answers.html">Answer (3)</a>
+                        <div class="card-tags">
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <div class="pagination">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>...</button>
+            <button>100</button>
+        </div>
+    </div>
+    {% endblock %}
