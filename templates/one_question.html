@@ -29,6 +29,14 @@
                 </div>
             </div>
         </article>
-        {% include 'components/pagination.html' %}
+        <div class="pagination">
+            {% if prev_question_id is not None %}
+                <a href="{% url 'question' prev_question_id %}">Previous</a>
+            {% endif %}
+            <span>{{ item.title }}</span>
+            {% if next_question_id is not None %}
+                <a href="{% url 'question' next_question_id %}">Next</a>
+            {% endif %}
+        </div>
     </div>
     {% endblock %}

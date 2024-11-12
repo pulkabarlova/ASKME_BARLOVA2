@@ -52,10 +52,27 @@ def hot(request):
 
 def question(request, question_id):
     try:
+        question_id = int(question_id)
         one_question = QUESTIONS[question_id]
-    except IndexError:
+    except (IndexError, ValueError):
         one_question = None
-    return render(request, 'one_question.html', {'item': one_question})
+    if question_id > 0:
+        prev_question_id = question_id - 1
+    else:
+        prev_question_id = None
+    if question_id < len(QUESTIONS) - 1:
+        next_question_id = question_id + 1
+    else:
+        next_question_id = None
+    return render(
+        request,
+        'one_question.html',
+        {
+            'item': one_question,
+            'prev_question_id': prev_question_id,
+            'next_question_id': next_question_id
+        }
+    )
 
 
 def login(request):
