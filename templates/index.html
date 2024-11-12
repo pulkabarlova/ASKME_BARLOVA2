@@ -4,7 +4,7 @@
     <div class="content">
         <div class="title-bar">
             <h1>New questions</h1>
-            <a href="/hot">Hot questions</a>
+            <a href="{% url 'hot' %}">Hot questions</a>
         </div>
         <article class="cards">
             {% for question in questions %}
@@ -19,7 +19,7 @@
                         <div>{{ question.text }}</div>
                     </div>
                     <div class="card-right-button">
-                        <a href="./answers.html">Answer (3)</a>
+                        <a href="{% url 'one_question' question.id %}">Answer (3)</a>
                         <div class="card-tags">
                             <a href="#">Link</a>
                             <a href="#">Link</a>
@@ -31,6 +31,6 @@
             </div>
             {% endfor %}
         </article>
-        {% include 'layouts/pagination.html' %}
+        {% include 'components/pagination.html' %}
     </div>
     {% endblock %}

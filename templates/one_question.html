@@ -4,10 +4,9 @@
     <div class="content">
         <div class="title-bar">
             <h1>One question page</h1>
-            <a href="/index">Main page</a>
+            <a href="{% url 'index' %}">Main page</a>
         </div>
         <article class="cards">
-
             <div class="card">
                 <div class="card-left">
                     <img src="./image.jpg" alt="Image" class="card-image">
@@ -30,12 +29,6 @@
                 </div>
             </div>
         </article>
-        <div class="pagination">
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>...</button>
-            <button>100</button>
-        </div>
+        {% include 'components/pagination.html' %}
     </div>
     {% endblock %}

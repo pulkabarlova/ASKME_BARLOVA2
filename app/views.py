@@ -12,18 +12,25 @@ QUESTIONS = [
 ]
 
 
-def index(request):
-    page_num = int(request.GET.get('page', 1))
-    paginator = Paginator(QUESTIONS, 5)
+def pagination(request, quest):
+    try:
+        page_num = int(request.GET.get('page', 1))
+    except ValueError:
+        page_num = 1
+    paginator = Paginator(quest, 5)
     try:
         page = paginator.page(page_num)
-
     except PageNotAnInteger:
         page = paginator.page(1)
 
     except EmptyPage:
         page = paginator.page(paginator.num_pages)
 
+    return page
+
+
+def index(request):
+    page = pagination(request, QUESTIONS)
     return render(
         request,
         'index.html',
@@ -32,19 +39,9 @@ def index(request):
 
 
 def hot(request):
-    hoy_questions = copy.deepcopy(QUESTIONS)
-    hoy_questions.reverse()
-    page_num = int(request.GET.get('page', 1))
-    paginator = Paginator(hoy_questions, 5)
-
-    try:
-        page = paginator.page(page_num)
-
-    except PageNotAnInteger:
-        page = paginator.page(1)
-
-    except EmptyPage:
-        page = paginator.page(paginator.num_pages)
+    hot_questions = copy.deepcopy(QUESTIONS)
+    hot_questions.reverse()
+    page = pagination(request, hot_questions)
 
     return render(
         request,
@@ -52,10 +49,13 @@ def hot(request):
         context={'questions': page.object_list, 'page_obj': page}
     )
 
+
 def question(request, question_id):
-    one_question = QUESTIONS[question_id]
-    return render(request, 'one_question.html',
-                {'item': one_question})
+    try:
+        one_question = QUESTIONS[question_id]
+    except IndexError:
+        one_question = None
+    return render(request, 'one_question.html', {'item': one_question})
 
 
 def login(request):
@@ -78,5 +78,14 @@ def single(request):
     return render(request, 'single.html')
 
 
+def registration(request):
+    return render(request, 'registration.html')
+
+
 def tag(request):
-    return render(request, 'tags.html')
+    page = pagination(request, QUESTIONS)
+    return render(
+        request,
+        'tags.html',
+        context={'questions': page.object_list, 'page_obj': page}
+    )

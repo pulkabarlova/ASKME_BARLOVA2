@@ -1,25 +1,17 @@
 {% extends 'layouts/base.html' %}
 {% block content %}
 <main class="container">
-    <section class="question-form">
-        <div class="content">
-            <div class="title-bar">
-                <h1>New Question</h1>
-            </div>
+    <section class="register-form">
+        <div class="title-bar">
+            <h1>New Question</h1>
         </div>
-        <form action="#" method="post" class="ask-form">
-            <div class="form-group">
+        <form action="#">
                 <label for="question-title">Title:</label>
-                <input class="input-title" type="text" id="question-title" name="title" required>
-            </div>
-            <div class="form-group">
+                <input class="form-input" type="text" id="question-title" name="title" required>
                 <label for="question-body">Details: </label>
-                <textarea class="input-body" id="question-body" name="body" rows="8" required></textarea>
-            </div>
-            <div class="form-group">
+                <textarea class="form-input" id="question-body" name="body" rows="8" required></textarea>
                 <label for="tags">Tags: </label>
-                <input class="input-tags" type="text" id="tags" name="tags" placeholder="moon, park, puzzle">
-            </div>
+                <input class="form-input" type="text" id="tags" name="tags" placeholder="moon, park, puzzle">
             <button type="submit" class="submit-button">Ask!</button>
         </form>
     </section>

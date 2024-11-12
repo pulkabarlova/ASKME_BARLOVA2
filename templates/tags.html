@@ -6,6 +6,7 @@
             <h1>Tag: bender</h1>
         </div>
         <article class="cards">
+            {% for question in questions %}
             <div class="card">
                 <div class="card-left">
                     <img src="./image.jpg" alt="Image" class="card-image">
@@ -13,61 +14,22 @@
                 </div>
                 <div class="card-right">
                     <div class="card-right-content">
-                        <h4>How to build a moon park?</h4>
-                        <div>Guys, i have trouble with a moon park.</div>
-                             <div> Can't find th black-jack...</div>
+                        <h4><a href="{% url 'one_question' question.id %}"> {{ question.title }} </a></h4>
+                        <div>{{ question.text }}</div>
                     </div>
                     <div class="card-right-button">
-                        <a href="./answers.html"> answer (3)</a>
+                        <a href="{% url 'one_question' question.id %}">Answer (3)</a>
                         <div class="card-tags">
-                            <a href="#">black-jack</a>
-                            <a href="#">bender</a>
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-left">
-                    <img src="./image.jpg" alt="Image" class="card-image">
-                    <input type="number" class="card-likes" value="5">
-                </div>
-                <div class="card-right">
-                    <div class="card-right-content">
-                        <h4>How to build a moon park?</h4>
-                        <div>Guys, i have trouble with a moon park.</div>
-                             <div> Can't find th black-jack...</div>
-                    </div>
-                    <div class="card-right-button">
-                        <a href="./answers.html"> answer (3)</a>
-                        <div class="card-tags">
-                            <a href="#">black-jack</a>
-                            <a href="#">bender</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-left">
-                    <img src="./image.jpg" alt="Image" class="card-image">
-                    <input type="number" class="card-likes" value="5">
-                </div>
-                <div class="card-right">
-                    <div class="card-right-content">
-                        <h4>How to build a moon park?</h4>
-                        <div>Guys, i have trouble with a moon park.</div>
-                             <div> Can't find th black-jack...</div>
-                    </div>
-                    <div class="card-right-button">
-                        <a href="./answers.html"> answer (3)</a>
-                        <div class="card-tags">
-                            <a href="#">black-jack</a>
-                            <a href="#">bender</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </article>
-        {% include 'layouts/pagination.html' %}
+        {% include 'components/pagination.html' %}
     </div>
     {% endblock %}
