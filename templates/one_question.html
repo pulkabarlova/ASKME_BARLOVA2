@@ -29,14 +29,44 @@
                 </div>
             </div>
         </article>
+        <div class="title-bar">
+            <h1>Answers</h1>
+        </div>
+        <article class="cards">
+            <div class="card">
+                <div class="card-left">
+                    <img src="./image.jpg" alt="Image" class="card-image">
+                    <input type="number" class="card-likes" value="5">
+                </div>
+                <div class="card-right">
+                    <div class="card-right-content">
+                        <h4>{{ answer.title }}</h4>
+                        <div>{{ answer.text }}</div>
+                    </div>
+                    <div class="card-right-button">
+                        <a href="./answers.html">Answer (3)</a>
+                        <div class="card-tags">
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                            <a href="#">Link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="answer-form">
+                <textarea placeholder="Enter your answer here.." class="answer-input"></textarea>
+            </div>
+        </article>
         <div class="pagination">
             {% if prev_question_id is not None %}
-                <a href="{% url 'question' prev_question_id %}">Previous</a>
+            <a href="{% url 'one_question' prev_question_id %}">Previous</a>
             {% endif %}
             <span>{{ item.title }}</span>
             {% if next_question_id is not None %}
-                <a href="{% url 'question' next_question_id %}">Next</a>
+            <a href="{% url 'one_question' next_question_id %}">Next</a>
             {% endif %}
         </div>
+
     </div>
     {% endblock %}

@@ -1,22 +1,17 @@
 import copy
 
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db.models import Count
 from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from app.models import Question, Tag, Answer
 
-QUESTIONS = [
-    {
-        'title': f'Title {i + 1}',
-        'id': i,
-        'text': f'This is text for question # {i + 1}'
-    } for i in range(30)
-]
+QUESTIONS = Question.objects.all()
+ANSWERS = Answer.objects.all()
 
 
 def pagination(request, quest):
-    try:
-        page_num = int(request.GET.get('page', 1))
-    except ValueError:
-        page_num = 1
+    page_num = int(request.GET.get('page', 1))
     paginator = Paginator(quest, 5)
     try:
         page = paginator.page(page_num)
@@ -39,10 +34,8 @@ def index(request):
 
 
 def hot(request):
-    hot_questions = copy.deepcopy(QUESTIONS)
-    hot_questions.reverse()
+    hot_questions = Question.objects.annotate(likes_count=Count('likes')).order_by('-likes_count')
     page = pagination(request, hot_questions)
-
     return render(
         request,
         'hot.html',
@@ -54,8 +47,10 @@ def question(request, question_id):
     try:
         question_id = int(question_id)
         one_question = QUESTIONS[question_id]
+        one_answer = ANSWERS[question_id]
     except (IndexError, ValueError):
         one_question = None
+        one_answer = None
     if question_id > 0:
         prev_question_id = question_id - 1
     else:
@@ -70,7 +65,8 @@ def question(request, question_id):
         {
             'item': one_question,
             'prev_question_id': prev_question_id,
-            'next_question_id': next_question_id
+            'next_question_id': next_question_id,
+            'answer': one_answer,
         }
     )
 
@@ -99,10 +95,12 @@ def registration(request):
     return render(request, 'registration.html')
 
 
-def tag(request):
-    page = pagination(request, QUESTIONS)
+def tag(request, tag_name):
+    tag = get_object_or_404(Tag, name=tag_name)
+    tagged_questions = tag.questions.all()
+    page = pagination(request, tagged_questions)
     return render(
         request,
         'tags.html',
-        context={'questions': page.object_list, 'page_obj': page}
+        context={'questions': page.object_list, 'page_obj': page, 'tag_name': tag_name}
     )

@@ -1,7 +1,4 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
 from django.contrib.auth.models import User
 
 
@@ -51,9 +48,7 @@ class Profile(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
-
     objects = TagManager()
-
     def __str__(self):
         return self.name
 
@@ -64,7 +59,6 @@ class Question(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='questions')
     tags = models.ManyToManyField(Tag, related_name='questions')
     created_at = models.DateTimeField(auto_now_add=True)
-
     objects = QuestionManager()
 
     class Meta:

@@ -15,5 +15,4 @@ urlpatterns = [
     path('single/', views.single, name='single'),
     path('tag/blablabla', views.tag, name='tag'),
     path('question/<int:question_id>/', views.question, name='one_question'),
-    path('question/<int:question_id>/', views.question, name='question'),
 ]
